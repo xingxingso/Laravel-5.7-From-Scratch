@@ -34,3 +34,13 @@ why I believe Laravel is the best framework choice in the PHP world.
 
 - [O'Reilly Media - Tech Books and Videos](http://shop.oreilly.com/)
 
+## [Initial Setup Requirements](https://laracasts.com/series/laravel-from-scratch-2018/episodes/2)
+
+> Like any modern PHP framework, 
+you'll need to install a few prerequisites to prepare for Laravel. 
+Don't worry: this is a one-time job. 
+Stick with me, and we'll get through it quickly. 
+We'll first install Composer, make it available system-wide, 
+and then pull in the Laravel installer. 
+This small tool will allow us to run a simple command (laravel new app) 
+to instantly generate a fresh Laravel project.
