@@ -85,3 +85,10 @@ view('welcome')->withFoo('bar');
 {{ $foo }}
 {!! $foo !!}
 ```
+
+## [Laravel 5.7 From Scratch: Controllers 101](https://laracasts.com/series/laravel-from-scratch-2018/episodes/6)
+
+> So far, we've handled all route logic through a closure in our routes/web.php file. 
+This is an excellent choice in some cases; 
+however, I think you'll find that the majority of your projects will require a bit more structure. 
+Let's learn how to migrate from route closures to dedicated controllers.
