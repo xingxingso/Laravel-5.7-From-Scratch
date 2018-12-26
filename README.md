@@ -52,3 +52,16 @@ one of your first tasks is to determine how routing is handled.
 Or in other words, when I visit a particular URL in the browser, 
 how does my framework route that URL to the necessary logic? 
 Let's review the basics in this episode.
+
+## [Blade Layout Files](https://laracasts.com/series/laravel-from-scratch-2018/episodes/4)
+
+> When constructing your views, you're not limited to basic PHP. 
+Instead, you can use Blade: Laravel's powerful templating engine. 
+We'll talk about Blade more in the future, but for now, 
+let's leverage it to create a layout file to reduce duplication and complexity.
+
+```php
+@yield('title', 'Laracasts')
+
+@section('title', 'Contact Us')
+```
