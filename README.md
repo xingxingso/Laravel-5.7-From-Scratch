@@ -44,3 +44,11 @@ We'll first install Composer, make it available system-wide,
 and then pull in the Laravel installer. 
 This small tool will allow us to run a simple command (laravel new app) 
 to instantly generate a fresh Laravel project.
+
+## [Basic Routing](https://laracasts.com/series/laravel-from-scratch-2018/episodes/3)
+
+> When learning a new framework, 
+one of your first tasks is to determine how routing is handled. 
+Or in other words, when I visit a particular URL in the browser, 
+how does my framework route that URL to the necessary logic? 
+Let's review the basics in this episode.
