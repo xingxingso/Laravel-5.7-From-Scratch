@@ -65,3 +65,23 @@ let's leverage it to create a layout file to reduce duplication and complexity.
 
 @section('title', 'Contact Us')
 ```
+
+## [Sending Data to Your Views](https://laracasts.com/series/laravel-from-scratch-2018/episodes/5?autoplay=true)
+
+> You'll often need to pass data to your views. 
+Perhaps it's a collection from the database, 
+or maybe a flash message to confirm a particular user action. 
+Let's review how easy this is to do.
+
+```php
+<?php
+view('welcome', ['foo' => 'bar']);
+view('welcome')->with(['foo' => 'bar']);
+view('welcome')->withFoo('bar');
+```
+
+```php
+<?= $foo; ?>
+{{ $foo }}
+{!! $foo !!}
+```
