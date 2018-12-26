@@ -66,7 +66,7 @@ let's leverage it to create a layout file to reduce duplication and complexity.
 @section('title', 'Contact Us')
 ```
 
-## [Sending Data to Your Views](https://laracasts.com/series/laravel-from-scratch-2018/episodes/5?autoplay=true)
+## [Sending Data to Your Views](https://laracasts.com/series/laravel-from-scratch-2018/episodes/5)
 
 > You'll often need to pass data to your views. 
 Perhaps it's a collection from the database, 
@@ -92,3 +92,30 @@ view('welcome')->withFoo('bar');
 This is an excellent choice in some cases; 
 however, I think you'll find that the majority of your projects will require a bit more structure. 
 Let's learn how to migrate from route closures to dedicated controllers.
+
+## [Databases and Migrations](https://laracasts.com/series/laravel-from-scratch-2018/episodes/7)
+
+> Let's move on to the fun part: connecting to our database. 
+This lesson will introduce a number of new concepts, so pay close attention. 
+We'll first review environment files. 
+This is where we can store important keys, passwords, and configuration settings. 
+Next, we'll discuss Laravel migrations: what they are, and why you should use them.
+
+### Note
+
+```bash
+php artisan migrate
+php artisan migrate:rollback
+php artisan migrate:fresh
+php artisan help make:migration
+php artisan make:migration create_projects_table
+```
+
+### Questions 
+
+#### [Specified key was too long error](https://laravel.com/docs/5.7/migrations#indexes)
+
+```php
+<?php
+Schema::defaultStringLength(191);
+```
