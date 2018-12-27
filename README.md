@@ -205,5 +205,18 @@ we'll use a bit of trickery to instruct Laravel which HTTP verb to assume.
 ### Note
 
 ```php
+@method('DELETE')
 {{ method_field('PATCH') }}
+```
+
+## Form Delete Requests
+
+> Let's review the homework solution from the previous lesson. 
+To delete an existing project, 
+we'll need to create a second form that sends a DELETE request to the necessary endpoint.
+
+### Note
+
+```php
+$project = Project::findOrFail($id);
 ```
