@@ -168,3 +168,25 @@ on a web application in which they're currently authenticated.
 ### Note
 
 > **CSRF** stands for "Cross-Site Request Forgery"
+
+## [Routing Conventions Worth Following](https://laracasts.com/series/laravel-from-scratch-2018/episodes/11)
+
+> You'll find that many Laravel applications follow a common convention when it comes to routing. 
+In this lesson, we'll review resourceful routing, extended controller generation, 
+and recommendations for how to organize your controllers.
+
+### Note
+
+* GET /projects (index)
+* GET /projects/create (create)
+* GET /projects/1 (show)
+* POST /porjects (store)
+* GET /projects/1/edit (edit)
+* PATCH /projects/1 (update)
+* DELETE /projects/1 (destroy)
+
+```bash
+php artisan route:list
+php artisan make:controller PostsController -r
+php artisan make:controller PostsController -r -m Post
+```
