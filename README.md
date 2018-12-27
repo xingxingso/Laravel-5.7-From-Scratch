@@ -259,3 +259,39 @@ class Project extends Model {
     protected $guarded = [];
 }
 ```
+
+## [Two Layers of Validation](https://laracasts.com/series/laravel-from-scratch-2018/episodes/15)
+
+> When it comes to user-provided data, 
+always take an approach of "guilty until proven innocent." 
+With that in mind, we'll add two layers of validation: client-side and server-side. 
+This will give us maximum assurance that we're receiving the correctly formatted input. 
+Anything else will be rejected entirely.
+
+> View the relevant source code for this episode [on GitHub](https://gist.github.com/JeffreyWay/bb70191eb4ed84e51d9d310b0b56c14b).
+
+### Reference
+
+- [JeffreyWay’s gists](https://gist.github.com/JeffreyWay)
+- [Validation#available-validation-rules](https://laravel.com/docs/5.7/validation#available-validation-rules)
+
+### Note
+
+```php
+<?php
+Project::create(
+    request()->validate([
+        'title' => ['required', 'min:3', 'max:255'],
+        'description' => 'required|min:3',
+        'password' => 'required|confirmed'
+    ])
+);
+```
+
+```php
+$errors->any()
+$errors->all()
+$errors->has('title')
+
+old('title');
+```
