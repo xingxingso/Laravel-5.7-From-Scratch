@@ -295,3 +295,22 @@ $errors->has('title')
 
 old('title');
 ```
+
+## [Your First Eloquent Relationships](https://laracasts.com/series/laravel-from-scratch-2018/episodes/16)
+
+> Eloquent ships with a handful of relationship methods 
+to make the process of performing complex SQL queries as simple as calling a method. 
+Let's extend the feature-set of our website to allow for custom per-project tasks. 
+This will give us the opportunity to review two relationships: `hasMany()` and `belongsTo()`.
+
+### Note
+
+```bash
+php artisan make:model Task -m -f
+```
+
+```php
+return $this->hasMany(Task::class);
+
+$project->tasks->count();
+```
