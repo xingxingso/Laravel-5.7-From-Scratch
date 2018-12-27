@@ -23,19 +23,30 @@ class ProjectsController extends Controller
         # code...
     }
 
-    public function edit()
+    public function edit($id)
     {
-        # code...
+        // return $id;
+        $project = Project::find($id);
+        return view('projects.edit', compact('project'));
     }
 
-    public function update()
+    public function update($id)
     {
-        # code...
+        // dd('hello!');
+        // dd(request()->all());
+
+        $project = Project::find($id);
+
+        $project->title = request('title');
+        $project->description = request('description');
+
+        $project->save();
+
+        return redirect('/projects');
     }
 
     public function destroy()
     {
-        # code...
     }
 
     public function store()

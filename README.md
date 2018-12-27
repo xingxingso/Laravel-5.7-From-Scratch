@@ -169,6 +169,11 @@ on a web application in which they're currently authenticated.
 
 > **CSRF** stands for "Cross-Site Request Forgery"
 
+```php
+@csrf  // laravel 5.7
+{{ csrf_field() }}
+```
+
 ## [Routing Conventions Worth Following](https://laracasts.com/series/laravel-from-scratch-2018/episodes/11)
 
 > You'll find that many Laravel applications follow a common convention when it comes to routing. 
@@ -189,4 +194,16 @@ and recommendations for how to organize your controllers.
 php artisan route:list
 php artisan make:controller PostsController -r
 php artisan make:controller PostsController -r -m Post
+```
+
+## [Faking PATCH and DELETE Requests](https://laracasts.com/series/laravel-from-scratch-2018/episodes/12)
+
+> Browsers don't yet understand PATCH and DELETE request types for your forms. 
+To get around this limitation, 
+we'll use a bit of trickery to instruct Laravel which HTTP verb to assume.
+
+### Note
+
+```php
+{{ method_field('PATCH') }}
 ```
