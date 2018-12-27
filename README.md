@@ -154,3 +154,17 @@ Artisan::command('inspire', function () {
 })->describe('Display an inspiring quote');
 // php artisan inspire
 ```
+
+## [Form Handling and CSRF Protection](https://laracasts.com/series/laravel-from-scratch-2018/episodes/10)
+
+> In this lesson, 
+we'll review a basic workflow for submitting form data to our server. 
+In the process, however, 
+we'll be forced to address a new concept: CSRF (Cross-Site Request Forgery).
+CSRF refers to an attack 
+that secretly forces a user to unwittingly execute an action 
+on a web application in which they're currently authenticated.
+
+### Note
+
+> **CSRF** stands for "Cross-Site Request Forgery"
