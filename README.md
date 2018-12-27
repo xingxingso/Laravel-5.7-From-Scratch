@@ -136,3 +136,21 @@ php artisan make:controller ProjectsController
 ```php
 App\Project::all()->map->title;
 ```
+
+## [Directory Structure Review](https://laracasts.com/series/laravel-from-scratch-2018/episodes/9)
+
+> If you don't mind, 
+let's take ten minutes to quickly review the directory structure 
+that you'll encounter with each new Laravel install. 
+While some of these concepts are currently a bit above our pay grade, 
+it's important that we at least have a basic understanding of 
+what each directory is responsible for.
+
+### Note
+
+```php
+Artisan::command('inspire', function () {
+    $this->comment(Inspiring::quote());
+})->describe('Display an inspiring quote');
+// php artisan inspire
+```
