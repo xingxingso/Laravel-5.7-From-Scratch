@@ -86,7 +86,7 @@ view('welcome')->withFoo('bar');
 {!! $foo !!}
 ```
 
-## [Laravel 5.7 From Scratch: Controllers 101](https://laracasts.com/series/laravel-from-scratch-2018/episodes/6)
+## [Controllers 101](https://laracasts.com/series/laravel-from-scratch-2018/episodes/6)
 
 > So far, we've handled all route logic through a closure in our routes/web.php file. 
 This is an excellent choice in some cases; 
@@ -118,4 +118,21 @@ php artisan make:migration create_projects_table
 ```php
 <?php
 Schema::defaultStringLength(191);
+```
+
+## [Eloquent, Namespacing, and MVC](https://laracasts.com/series/laravel-from-scratch-2018/episodes/8)
+
+> Now that we understand how to create a new database table using a migration class, 
+let's now query that data with Eloquent. 
+As part of this, we'll do a quick recap of basic namespacing and MVC workflow.
+
+### Note
+
+```bash
+php artisan make:model Project
+php artisan make:controller ProjectsController
+```
+
+```php
+App\Project::all()->map->title;
 ```
