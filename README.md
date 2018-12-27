@@ -209,7 +209,7 @@ we'll use a bit of trickery to instruct Laravel which HTTP verb to assume.
 {{ method_field('PATCH') }}
 ```
 
-## Form Delete Requests
+## [Form Delete Requests](https://laracasts.com/series/laravel-from-scratch-2018/episodes/13)
 
 > Let's review the homework solution from the previous lesson. 
 To delete an existing project, 
@@ -219,4 +219,43 @@ we'll need to create a second form that sends a DELETE request to the necessary 
 
 ```php
 $project = Project::findOrFail($id);
+```
+
+## [Cleaner Controllers and Mass Assignment Concerns](https://laracasts.com/series/laravel-from-scratch-2018/episodes/14)
+
+> It's important that you set aside time to review and improve the code you've written. 
+With that in mind, let's return to our `ProjectsController` class and review 
+how we might improve and simplify the code. 
+In doing so, this will give us the chance to discuss **route model binding** 
+and **mass assignment** vulnerabilities.
+
+### Reference
+
+-  [routing#route-model-binding](https://laravel.com/docs/5.7/routing#route-model-binding)
+
+### Note
+
+```php
+<?php
+Project::create([
+    'title' => request('title'),
+    'description' => request('description')
+]);
+
+Project::create(request(['title', 'description']));
+
+$project->update(request(['title', 'description']));
+```
+
+```php
+<?php
+use Illuminate\Database\Eloquent\Model;
+
+class Project extends Model {
+    protected $fillable = [
+        'title', 'description'
+    ];
+
+    protected $guarded = [];
+}
 ```
