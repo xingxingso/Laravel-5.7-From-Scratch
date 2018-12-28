@@ -10,7 +10,7 @@ However, if you're still on the fence,
 give me just a moment to sell you on 
 why I believe Laravel is the best framework choice in the PHP world.
 
-### Useful Website
+### Useful Websites
 
 - [Laravel - The PHP Framework For Web Artisans](https://laravel.com/)
 
@@ -52,6 +52,10 @@ one of your first tasks is to determine how routing is handled.
 Or in other words, when I visit a particular URL in the browser, 
 how does my framework route that URL to the necessary logic? 
 Let's review the basics in this episode.
+
+```bash
+php artisan serve
+```
 
 ## [Blade Layout Files](https://laracasts.com/series/laravel-from-scratch-2018/episodes/4)
 
@@ -190,6 +194,10 @@ and recommendations for how to organize your controllers.
 * PATCH /projects/1 (update)
 * DELETE /projects/1 (destroy)
 
+```php
+Route::resource('projects', 'ProjectsController');
+```
+
 ```bash
 php artisan route:list
 php artisan make:controller PostsController -r
@@ -313,4 +321,31 @@ php artisan make:model Task -m -f
 return $this->hasMany(Task::class);
 
 $project->tasks->count();
+```
+
+## [Form Action Considerations](https://laracasts.com/series/laravel-from-scratch-2018/episodes/17)
+
+> It's important to set aside an appropriate amount of time to consider your form endpoints. 
+In this lesson, we'll review two common conventions you'll encounter in the wild.
+
+### Note
+
+#### Chrome Debug Skill
+
+    1. Chrome 
+    2. F12 
+    3. `Select an element`
+    4. Console
+    5. Enter `$0`; `$0.submit()`
+
+#### code
+
+```html
+<input type="checkbox" name="completed" onChange="this.form.submit()">
+```
+
+```php
+request()->has('completed');
+
+back();
 ```
