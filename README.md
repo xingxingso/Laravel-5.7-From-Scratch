@@ -349,3 +349,9 @@ request()->has('completed');
 
 back();
 ```
+
+## [Create New Project Tasks](https://laracasts.com/series/laravel-from-scratch-2018/episodes/18)
+
+> To add new tasks to our project page, we'll need to construct another form. 
+This will give us the chance to once again discuss URI naming conventions, 
+as well as basic encapsulation techniques.
