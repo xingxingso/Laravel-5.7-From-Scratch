@@ -186,13 +186,15 @@ and recommendations for how to organize your controllers.
 
 ### Note
 
-* GET /projects (index)
-* GET /projects/create (create)
-* GET /projects/1 (show)
-* POST /porjects (store)
-* GET /projects/1/edit (edit)
-* PATCH /projects/1 (update)
-* DELETE /projects/1 (destroy)
+| Method |       URI        |  Action |
+|--------|------------------|---------|
+| GET    | /projects        | index   |
+| GET    | /projects/create | create  |
+| POST   | /porjects        | store   |
+| GET    | /projects/1      | show    |
+| GET    | /projects/1/edit | edit    |
+| PATCH  | /projects/1      | update  |
+| DELETE | /projects/1      | destroy |
 
 ```php
 Route::resource('projects', 'ProjectsController');
@@ -355,3 +357,14 @@ back();
 > To add new tasks to our project page, we'll need to construct another form. 
 This will give us the chance to once again discuss URI naming conventions, 
 as well as basic encapsulation techniques.
+
+## [Better Encapsulation](https://laracasts.com/series/laravel-from-scratch-2018/episodes/19)
+
+> Let's talk about encapsulation a bit more. 
+"Encapsulation" refers to the act of hiding values and state inside of a class. 
+So with that in mind, let's review our controller and review 
+in which areas we might improve encapsulation and flexibility.
+
+### Note
+
+> **Encapsulation**: Hide internal state and values inside a class.
