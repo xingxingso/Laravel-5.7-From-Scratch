@@ -425,3 +425,22 @@ $this->app->bind(
     \App\Repositories\DbUserRepository::class
 );
 ```
+
+## [Core Concepts: Configuration and Environments](https://laracasts.com/series/laravel-from-scratch-2018/episodes/23)
+
+> Our next core concept focuses on configuration. 
+Luckily, Laravel makes environment-specific settings 
+(development, testing, production, etc.) a breeze to setup and reference.
+
+### Note
+
+```bash
+php artisan config:cache
+php artisan config:clear
+```
+
+```php
+config('services.twitter.secret');
+
+env('TWITTER_SECRET');
+```

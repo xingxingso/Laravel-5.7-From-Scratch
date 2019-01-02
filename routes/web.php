@@ -20,14 +20,14 @@
  * PATCH /projects/1 (update)
  * DELETE /projects/1 (destroy)
  */
-// use App\Services\Twitter;
-use App\Repositories\UserRepository;
+use App\Services\Twitter;
+// use App\Repositories\UserRepository;
 
-// Route::get('/', function (Twitter $twitter) {
-Route::get('/', function (UserRepository $user) {
+Route::get('/', function (Twitter $twitter) {
+// Route::get('/', function (UserRepository $user) {
     // dd(app('foo'));
-    // dd($twitter);
-    dd($user);
+    dd($twitter);
+    // dd($user);
     return view('welcome');
 });
 
