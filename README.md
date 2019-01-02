@@ -378,3 +378,31 @@ Let's discuss what I mean by this, and what it might look like in our current de
 ### Reference
 
 - [Watch Day 1 - Adam Wathan from Laracon US 2017!](https://streamacon.com/video/laracon-us-2017/day-1-adam-wathan)
+
+## [Core Concepts: Service Container and Auto-Resolution](https://laracasts.com/series/laravel-from-scratch-2018/episodes/21)
+
+> It's important that we take time to review the core concepts behind the Laravel framework. 
+First up is two scary, but vitally important terms: **service container** and **auto-resolution**. 
+Together, these two create the perfect one-two punch for your dependency resolving needs.
+
+### Note
+
+```php
+use Illuminate\Filesystem\Filesystem;
+
+app();
+app(Filesystem::class);
+app('example');
+app('App\Example');
+
+resolve(Filesystem::class);
+
+app()->bind('example', function () {
+    return new \App\Example;
+});
+
+// app()->singleton('App\Example', function () {
+app()->singleton('example', function () {
+    return new \App\Example;
+});
+```

@@ -21,7 +21,14 @@
  * DELETE /projects/1 (destroy)
  */
 
+// // app()->singleton('App\Example', function () {
+// app()->singleton('example', function () {
+//     // dd('called');
+//     return new \App\Example;
+// });
+
 Route::get('/', function () {
+    dd(app('App\Example'));
     return view('welcome');
 });
 
