@@ -455,3 +455,26 @@ Run a single Artisan command, and, bam, you're ready to go!
 ```
 php artisan make:auth
 ```
+
+## [Core Concepts: Middleware](https://laracasts.com/series/laravel-from-scratch-2018/episodes/25)
+
+> Our next core concept is **middleware**. Think of middleware like layers of an onion. 
+As a request enters your application, it travels through these layers, one by one. 
+Each layer (or middleware) has the opportunity to perform some kind of operation. 
+It can cache a piece of data, it can redirect the user, or it can even adjust the response.
+
+### Note
+
+```bash
+php artisan make:middleware LogQueries
+```
+
+```php
+Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
+Route::get('/home', 'HomeController@index')->name('home')->middleware('guest');
+
+public function __construct()
+{
+    $this->middleware('auth');
+}
+```
