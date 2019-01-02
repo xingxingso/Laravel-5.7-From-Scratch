@@ -368,3 +368,13 @@ in which areas we might improve encapsulation and flexibility.
 ### Note
 
 > **Encapsulation**: Hide internal state and values inside a class.
+
+## [When in Doubt](https://laracasts.com/series/laravel-from-scratch-2018/episodes/20)
+
+> **Extra Credit!** When in doubt, create a new controller and return to REST. 
+This is a technique that I've reached for countless times over the years. 
+Let's discuss what I mean by this, and what it might look like in our current demo.
+
+### Reference
+
+- [Watch Day 1 - Adam Wathan from Laracon US 2017!](https://streamacon.com/video/laracon-us-2017/day-1-adam-wathan)
