@@ -24,6 +24,15 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        // app()->bind();
+        // $this->app->bind('foo');
+        // $this->app->singleton('foo', function () {
+        //     return 'bar';
+        // });
+        
+        $this->app->bind(
+            \App\Repositories\UserRepository::class,
+            \App\Repositories\DbUserRepository::class
+        );
     }
 }

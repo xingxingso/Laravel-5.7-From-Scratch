@@ -406,3 +406,22 @@ app()->singleton('example', function () {
     return new \App\Example;
 });
 ```
+
+## [Core Concepts: Service Providers](https://laracasts.com/series/laravel-from-scratch-2018/episodes/22)
+
+> Now that you have a better understanding of Laravel's service container, 
+we can move on to our second core concept: **service providers**. 
+These classes are responsible for registering and bootstrapping a component with the Laravel framework.
+
+### Note
+
+```bash
+php artisan make:provider SocialServiceProvider
+```
+
+```php
+$this->app->bind(
+    \App\Repositories\UserRepository::class,
+    \App\Repositories\DbUserRepository::class
+);
+```
