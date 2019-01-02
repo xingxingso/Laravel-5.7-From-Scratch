@@ -444,3 +444,14 @@ config('services.twitter.secret');
 
 env('TWITTER_SECRET');
 ```
+
+## [A Full Registration System in Seconds](https://laracasts.com/series/laravel-from-scratch-2018/episodes/24)
+
+> Laravel includes a robust registration and authentication system out of the box. 
+Run a single Artisan command, and, bam, you're ready to go!
+
+### Note
+
+```
+php artisan make:auth
+```

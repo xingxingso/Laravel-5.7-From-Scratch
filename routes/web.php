@@ -23,10 +23,11 @@
 use App\Services\Twitter;
 // use App\Repositories\UserRepository;
 
-Route::get('/', function (Twitter $twitter) {
+// Route::get('/', function (Twitter $twitter) {
 // Route::get('/', function (UserRepository $user) {
+Route::get('/', function () {
     // dd(app('foo'));
-    dd($twitter);
+    // dd($twitter);
     // dd($user);
     return view('welcome');
 });
