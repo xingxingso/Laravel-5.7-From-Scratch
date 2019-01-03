@@ -478,3 +478,20 @@ public function __construct()
     $this->middleware('auth');
 }
 ```
+
+## [You May Only View Your Projects](https://laracasts.com/series/laravel-from-scratch-2018/episodes/26)
+
+> Now that you understand authentication and middleware, 
+we can apply this new learning to our "projects" demo. 
+At the moment, you can view and modify any project in the database. 
+In real life, of course, your access should be limited to only the projects that you own. 
+Let's begin fixing that in this episode.
+
+### Note
+
+```php
+auth()->id();
+auth()->user();
+auth()->check();
+auth()->guest();
+```
