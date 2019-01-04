@@ -45,10 +45,23 @@ class ProjectsController extends Controller
     }
 
     public function show(Project $project)
-    // public function show(Filesystem $file)
     {
-        // dd($file);
-        $filesystem = app('Illuminate\Filesystem\Filesystem');
+        // if ($project->owner_id !== auth()->id()) {
+        //     abort(403);
+        // }
+        // abort_if ($project->id !== auth()->id(), 403);
+        // abort_unless(auth()->user()->owns($project), 403);
+        
+        // abort_unless(auth()->user()->can('update', $project), 403);
+
+        // $this->authorize('update', $project);
+
+        // if (\Gate::denies('update', $project)) {
+        //     abort(403);
+        // }
+        // abort_if(\Gate::denies('update', $project), 403);
+        // abort_unless(\Gate::allows('update', $project), 403);
+
         return view('projects.show', compact('project'));
     }
 
@@ -59,17 +72,17 @@ class ProjectsController extends Controller
 
     public function update(Project $project)
     {
-        // $project->title = request('title');
-        // $project->description = request('description');
-        $project->update(request(['title', 'description']));
+        // $this->authorize('update', $project);
 
-        // $project->save();
+        $project->update(request(['title', 'description']));
 
         return redirect('/projects');
     }
 
     public function destroy(Project $project)
     {
+        // $this->authorize('update', $project);
+
         $project->delete();
 
         return redirect('/projects');

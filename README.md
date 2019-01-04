@@ -239,7 +239,7 @@ how we might improve and simplify the code.
 In doing so, this will give us the chance to discuss **route model binding** 
 and **mass assignment** vulnerabilities.
 
-### Reference
+### ReferenceReference
 
 -  [routing#route-model-binding](https://laravel.com/docs/5.7/routing#route-model-binding)
 
@@ -280,7 +280,7 @@ Anything else will be rejected entirely.
 
 > View the relevant source code for this episode [on GitHub](https://gist.github.com/JeffreyWay/bb70191eb4ed84e51d9d310b0b56c14b).
 
-### Reference
+### ReferenceReference
 
 - [JeffreyWay’s gists](https://gist.github.com/JeffreyWay)
 - [Validation#available-validation-rules](https://laravel.com/docs/5.7/validation#available-validation-rules)
@@ -375,7 +375,7 @@ in which areas we might improve encapsulation and flexibility.
 This is a technique that I've reached for countless times over the years. 
 Let's discuss what I mean by this, and what it might look like in our current demo.
 
-### Reference
+### ReferenceReference
 
 - [Watch Day 1 - Adam Wathan from Laracon US 2017!](https://streamacon.com/video/laracon-us-2017/day-1-adam-wathan)
 
@@ -430,7 +430,7 @@ $this->app->bind(
 
 > Our next core concept focuses on configuration. 
 Luckily, Laravel makes environment-specific settings 
-(development, testing, production, etc.) a breeze to setup and reference.
+(development, testing, production, etc.) a breeze to setup and referencereference.
 
 ### Note
 
@@ -495,3 +495,65 @@ auth()->user();
 auth()->check();
 auth()->guest();
 ```
+
+## [Authorization Essentials](https://laracasts.com/series/laravel-from-scratch-2018/episodes/27)
+
+> Laravel includes a powerful **Gate** component for authorizing your users. 
+Wouldn't it be nice if your authorization logic read like a readable sentence? 
+Well, we can do that very easily!
+
+### Note
+
+```bash
+php artisan make:policy ProjectPolicy
+php artisan make:policy ProjectPolicy --model=Project
+```
+
+```php
+<?php
+abort(403);
+abort_if ($project->id !== auth()->id(), 403);
+abort_unless(auth()->user()->owns($project), 403);
+
+// use Policy
+$this->authorize('view', $project);
+
+auth()->user()->can('update', $project);
+auth()->user()->cannot('update', $project);
+
+\Gate::denies('update', $project);
+\Gate::allows('update', $project);
+
+Route::resource('projects', 'ProjectsController')->middleware('can:update,project');
+```
+
+```html
+@can('update', $project)
+    <a href="">Update</a>
+@endcan
+```
+
+```php
+<?php
+// AuthServiceProvider.php
+use Illuminate\Contracts\Auth\Access\Gate;
+use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
+
+class AuthServiceProvider extends ServiceProvider
+{
+    public function boot(Gate $gate)
+    {
+        $this->registerPolicies();
+
+        $gate->before(function ($user) {
+            if ($user->id == 1) { // this is an admin id.
+                return true;
+            }
+        });
+    }
+}
+```
+
+### Reference
+
+- [Authorization#intercepting-gate-checks](https://laravel.com/docs/5.7/authorization#intercepting-gate-checks)
