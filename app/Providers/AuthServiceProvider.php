@@ -31,7 +31,7 @@ class AuthServiceProvider extends ServiceProvider
             // return $user->id == 1; 
             // If the before callback returns a non-null result 
             // that result will be considered the result of the check.
-            if ($user->id == 2) { // this is an admin id.
+            if ($user->id == 1) { // this is an admin id.
                 return true;
             }
         });

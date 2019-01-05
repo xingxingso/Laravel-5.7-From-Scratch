@@ -525,6 +525,12 @@ auth()->user()->cannot('update', $project);
 \Gate::allows('update', $project);
 
 Route::resource('projects', 'ProjectsController')->middleware('can:update,project');
+
+// ProjectsController.php
+public function __construct()
+{
+    $this->middleware('can:update,project')->except(['index']);
+}
 ```
 
 ```html
@@ -557,3 +563,29 @@ class AuthServiceProvider extends ServiceProvider
 ### Reference
 
 - [Authorization#intercepting-gate-checks](https://laravel.com/docs/5.7/authorization#intercepting-gate-checks)
+
+## [Simpler Debugging With Laravel Telescope](https://laracasts.com/series/laravel-from-scratch-2018/episodes/28)
+
+> [Laravel Telescope](https://github.com/laravel/telescope) is a first-party package to assist with debugging and monitoring your application. 
+For anything other than quick throwaway projects, I highly recommend that you pull this in.
+
+### Note
+
+- `http://127.0.0.1:8000/telescope`
+
+```bash
+composer require laravel/telescope --dev
+php artisan telescope:install
+php artisan migrate
+
+php artisan make:mail ProjectCreated
+php artisan make:mail ProjectCreated --markdown="mail.project-created"
+```
+
+```php
+$projects = Project::where('owner_id', auth()->id())->take(1)->get();
+
+cache()->rememberForever('stats', function () {
+    return ['lesson' => 1300, 'hours' => 50000, 'series' => 100];
+});
+```
