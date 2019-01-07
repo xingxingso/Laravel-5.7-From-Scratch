@@ -13,6 +13,8 @@ class ProjectCreated extends Mailable
 
     public $project;
 
+    public $foo = 'bar';
+
     /**
      * Create a new message instance.
      *

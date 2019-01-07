@@ -4,7 +4,7 @@
 {{ $project->description }}
 
 @component('mail::button', ['url' => url('/projects/' . $project->id)])
-View Project
+View Project {{ $foo }}
 @endcomponent
 
 Thanks,<br>

@@ -239,7 +239,7 @@ how we might improve and simplify the code.
 In doing so, this will give us the chance to discuss **route model binding** 
 and **mass assignment** vulnerabilities.
 
-### ReferenceReference
+### Reference
 
 -  [routing#route-model-binding](https://laravel.com/docs/5.7/routing#route-model-binding)
 
@@ -280,7 +280,7 @@ Anything else will be rejected entirely.
 
 > View the relevant source code for this episode [on GitHub](https://gist.github.com/JeffreyWay/bb70191eb4ed84e51d9d310b0b56c14b).
 
-### ReferenceReference
+### Reference
 
 - [JeffreyWay’s gists](https://gist.github.com/JeffreyWay)
 - [Validation#available-validation-rules](https://laravel.com/docs/5.7/validation#available-validation-rules)
@@ -375,7 +375,7 @@ in which areas we might improve encapsulation and flexibility.
 This is a technique that I've reached for countless times over the years. 
 Let's discuss what I mean by this, and what it might look like in our current demo.
 
-### ReferenceReference
+### Reference
 
 - [Watch Day 1 - Adam Wathan from Laracon US 2017!](https://streamacon.com/video/laracon-us-2017/day-1-adam-wathan)
 
@@ -430,7 +430,7 @@ $this->app->bind(
 
 > Our next core concept focuses on configuration. 
 Luckily, Laravel makes environment-specific settings 
-(development, testing, production, etc.) a breeze to setup and referencereference.
+(development, testing, production, etc.) a breeze to setup and reference.
 
 ### Note
 
@@ -595,3 +595,14 @@ cache()->rememberForever('stats', function () {
 > Before we move on to eventing, 
 let's take another quick stroll through our main `ProjectsController` to review readability. 
 Are there any places where we can make the code more clear?
+
+## [Mailables](https://laracasts.com/series/laravel-from-scratch-2018/episodes/30)
+
+> We spoke briefly about sending email with Laravel in a previous episode, 
+but let's dedicate this full lesson to the topic. 
+In addition to the basic workflow for generating Laravel mailables, 
+we'll also discuss two methods for reviewing these emails: Telescope and Mailtrap.io.
+
+#### Reference
+
+- [Mailtrap.io — Fake smtp testing server. Dummy smtp email testing](https://mailtrap.io/)
