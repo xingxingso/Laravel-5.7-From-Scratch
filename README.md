@@ -589,3 +589,9 @@ cache()->rememberForever('stats', function () {
     return ['lesson' => 1300, 'hours' => 50000, 'series' => 100];
 });
 ```
+
+## [Don't Forget Readability](https://laracasts.com/series/laravel-from-scratch-2018/episodes/29)
+
+> Before we move on to eventing, 
+let's take another quick stroll through our main `ProjectsController` to review readability. 
+Are there any places where we can make the code more clear?

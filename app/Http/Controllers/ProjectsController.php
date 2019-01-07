@@ -23,7 +23,7 @@ class ProjectsController extends Controller
         // auth()->guest()
 
         // $projects = Project::all();
-        $projects = Project::where('owner_id', auth()->id())->get();
+        // $projects = Project::where('owner_id', auth()->id())->get();
         // $projects = Project::where('owner_id', auth()->id())->take(2)->get();
         // dump($projects);
 
@@ -33,6 +33,8 @@ class ProjectsController extends Controller
 
         // $stats = cache()->get('stats');
         // dump($stats);
+    
+        $projects = auth()->user()->projects;
 
         return view('projects.index', compact('projects'));
     }
@@ -51,10 +53,11 @@ class ProjectsController extends Controller
         //     ]) + ['owner_id' => auth()->id()]
         // );
 
-        $attributes = request()->validate([
-            'title' => ['required', 'min:3'],
-            'description' => 'required|min:3'
-        ]);
+        // $attributes = request()->validate([
+        //     'title' => ['required', 'min:3'],
+        //     'description' => 'required|min:3'
+        // ]);
+        $attributes = $this->validateProject();
 
         $attributes['owner_id'] = auth()->id();
 
@@ -96,8 +99,13 @@ class ProjectsController extends Controller
     public function update(Project $project)
     {
         // $this->authorize('update', $project);
+        // $attributes = request()->validate([
+        //     'title' => ['required', 'min:3'],
+        //     'description' => 'required|min:3'
+        // ]);
 
-        $project->update(request(['title', 'description']));
+        // $project->update(request(['title', 'description']));
+        $project->update($this->validateProject());
 
         return redirect('/projects');
     }
@@ -109,5 +117,13 @@ class ProjectsController extends Controller
         $project->delete();
 
         return redirect('/projects');
+    }
+
+    protected function validateProject()
+    {
+        return request()->validate([
+            'title' => ['required', 'min:3'],
+            'description' => 'required|min:3'
+        ]);
     }
 }
