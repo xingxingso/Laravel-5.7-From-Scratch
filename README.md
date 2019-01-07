@@ -605,4 +605,34 @@ we'll also discuss two methods for reviewing these emails: Telescope and Mailtra
 
 #### Reference
 
-- [Mailtrap.io — Fake smtp testing server. Dummy smtp email testing](https://mailtrap.io/)
+- [Mailtrap.io — Fake smtp testing server. Dummy smtp email testing](https://mailtrap.io)
+
+## [Model Hooks and Seesaws](https://laracasts.com/series/laravel-from-scratch-2018/episodes/31)
+
+> Over the next few lessons, we'll review various approaches for organizing your code. 
+Consider the "send an email when a project is created" portion of the code. 
+We could trigger this logic in multiple ways: through the controller, 
+as an Eloquent model hook, as a custom event, etc. 
+Let's begin reviewing these approaches while discussing the pros and cons of each.
+
+### Note
+
+```php
+class Project extends Model
+{
+    protected static function boot() 
+    {
+        parent::boot();
+
+        static::created(function ($project) {
+            Mail::to($project->owner->email)->send(
+                new ProjectCreated($project)
+            );
+        });
+    }
+}
+```
+
+### Reference
+
+- [Eloquent#events](https://laravel.com/docs/5.7/eloquent#events)
