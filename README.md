@@ -636,3 +636,29 @@ class Project extends Model
 ### Reference
 
 - [Eloquent#events](https://laravel.com/docs/5.7/eloquent#events)
+
+## [Custom Events and Listeners](https://laracasts.com/series/laravel-from-scratch-2018/episodes/32)
+
+> Let's now review the third choice for refactoring our code: custom events. 
+As you'll see, this particular refactor does come with small complexity cost up front; 
+however, particularly when dealing with actions that include multiple side effects, 
+this can be a useful technique for your toolbelt.
+
+### Note
+
+```bash
+php artisan make:event ProjectCreated
+
+php artisan make:listener SendProjectCreatedNotification
+php artisan make:listener SendProjectCreatedNotification --event=ProjectCreated
+```
+
+```php
+protected $dispatchesEvents = [
+    'created' => ProjectCreated::class
+];
+```
+
+### Reference
+
+- [alexeymezenin/laravel-best-practices: Laravel best practices](https://github.com/alexeymezenin/laravel-best-practices)

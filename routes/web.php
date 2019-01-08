@@ -43,3 +43,7 @@ Route::delete('/completed-tasks/{task}', 'CompletedTasksController@destroy');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+// Route::get('/shows', function () {
+//     return view('welcome');
+// });
