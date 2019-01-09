@@ -662,3 +662,35 @@ protected $dispatchesEvents = [
 ### Reference
 
 - [alexeymezenin/laravel-best-practices: Laravel best practices](https://github.com/alexeymezenin/laravel-best-practices)
+
+## [User Notifications](https://laracasts.com/series/laravel-from-scratch-2018/episodes/33)
+
+> You already know how to send basic emails. Next, let's move on to Laravel notifications. 
+Using Laracasts as an example, imagine that we must notify a user 
+when their subscription renewal charge has failed to process. 
+While, yes, we can send them an email, 
+what if we also want to notify them through a text message or their dashboard in the web app? 
+Sure, no problem. This is all quite easy with Laravel.
+
+### Note
+
+```bash
+php artisan make:notification SubscriptionRenewalFailed
+php artisan notification:table
+```
+
+```php
+<?php
+namespace App;
+use Illuminate\Notifications\Notifiable;
+class User extends Authenticatable
+{
+    use Notifiable;
+}
+```
+
+```php
+$user->notify(new SubscriptionRenewalFailed);
+$user->notifications->first()->markAsRead();
+$user->unreadNotifications;
+```
