@@ -8,9 +8,11 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet" type="text/css">
+        {{-- <link rel="stylesheet" type="text/css" href="/css/app.css"> --}}
+        <link rel="stylesheet" type="text/css" href="{{ mix('css/app.css') }}">
 
         <!-- Styles -->
-        <style>
+       {{--  <style>
             html, body {
                 background-color: #fff;
                 color: #636b6f;
@@ -61,10 +63,12 @@
             .m-b-md {
                 margin-bottom: 30px;
             }
-        </style>
+        </style> --}}
     </head>
     <body>
-        <div class="flex-center position-ref full-height">
+        <div id="app" class="flex-center position-ref full-height">
+            <example-component></example-component>
+
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
@@ -94,5 +98,10 @@
                 </div>
             </div>
         </div>
+
+        {{-- <script src="/js/manifest.js"></script>
+        <script src="/js/vendor.js"></script> --}}
+        {{-- <script src="/js/app.js"></script> --}}
+        <script src="{{ mix('js/app.js') }}"></script>
     </body>
 </html>

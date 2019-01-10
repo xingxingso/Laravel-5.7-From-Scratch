@@ -22,14 +22,14 @@
  */
 // use App\Services\Twitter;
 // use App\Repositories\UserRepository;
-use App\Notifications\SubscriptionRenewalFailed;
+// use App\Notifications\SubscriptionRenewalFailed;
 
 // Route::get('/', function (Twitter $twitter) {
 // Route::get('/', function (UserRepository $user) {
 Route::get('/', function () {
-    $user = App\User::first();
-    $user->notify(new SubscriptionRenewalFailed);
-    return 'Done';
+    // $user = App\User::first();
+    // $user->notify(new SubscriptionRenewalFailed);
+    // return 'Done';
     return view('welcome');
 });
 

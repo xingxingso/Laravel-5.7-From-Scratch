@@ -694,3 +694,24 @@ $user->notify(new SubscriptionRenewalFailed);
 $user->notifications->first()->markAsRead();
 $user->unreadNotifications;
 ```
+
+## [Laravel and the Front-end](https://laracasts.com/series/laravel-from-scratch-2018/episodes/34)
+
+> Let's take a break from PHP, and switch over to our recommended front-end workflow within a Laravel app. 
+We'll do a crash-course on webpack, Laravel Mix, compiling CSS, and debugging your Vue components.
+
+### Note
+
+```bash
+npm run dev
+npm run production
+npm run watch
+```
+
+### Reference
+
+- [Laracasts: Learn Vue 2: Step By Step](https://laracasts.com/series/learn-vue-2-step-by-step)
+
+- [Laracasts: Learn Laravel Mix](https://laracasts.com/series/learn-laravel-mix)
+
+- [Vue.js devtools](https://chrome.google.com/webstore/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd?hl=en)
