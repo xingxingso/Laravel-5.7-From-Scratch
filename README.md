@@ -715,3 +715,32 @@ npm run watch
 - [Laracasts: Learn Laravel Mix](https://laracasts.com/series/learn-laravel-mix)
 
 - [Vue.js devtools](https://chrome.google.com/webstore/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd?hl=en)
+
+## [Collection Essentials](https://laracasts.com/series/laravel-from-scratch-2018/episodes/35)
+
+> We should take some time to review Laravel collections. 
+You'll receive and reach for these constantly as you construct your app. 
+Not only will Eloquent queries return collection instances, 
+but you can also create your own custom collections with ease. 
+Let's review the 80% essentials in this episode.
+
+### Note
+
+```php
+$users = App\User::all();
+$users->map(function ($user) {
+    return $user->name;
+});
+
+$users->pluck('name');
+
+$users->filter(function ($user) {
+    return $user->id >= 3;
+});
+
+collect(['foo', 'bar', 'baz']);
+
+$users->sum('id');
+$users->filter->email_verified_at;
+$users->filter->isVerified(); 
+```
