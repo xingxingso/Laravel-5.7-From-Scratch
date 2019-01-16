@@ -47,6 +47,8 @@ class ProjectsController extends Controller
 
     public function store()
     {
+        flash('Your project has been created.');
+
         // Project::create(
         //     request()->validate([
         //         'title' => ['required', 'min:3', 'max:255'],

@@ -20,16 +20,19 @@
  * PATCH /projects/1 (update)
  * DELETE /projects/1 (destroy)
  */
-// use App\Services\Twitter;
-// use App\Repositories\UserRepository;
-// use App\Notifications\SubscriptionRenewalFailed;
 
-// Route::get('/', function (Twitter $twitter) {
-// Route::get('/', function (UserRepository $user) {
-Route::get('/', function () {
-    // $user = App\User::first();
-    // $user->notify(new SubscriptionRenewalFailed);
-    // return 'Done';
+use Illuminate\Http\Request;
+
+// Route::get('/', function () {
+Route::get('/', function (Request $request) {
+    // session(['name' => 'JohnDoe']);
+    // session()->forget('name');
+    // return session('name');
+    // return session('foobar', 'A default');
+    // $request->session()->put('foobar', 'baz');
+    // return $request->session()->get('foobar');
+    // return $request->session()->get('zzzzz', 'default');
+    // $request->flash();
     return view('welcome');
 });
 
@@ -48,3 +51,4 @@ Route::get('/home', 'HomeController@index')->name('home');
 // Route::get('/shows', function () {
 //     return view('welcome');
 // });
+

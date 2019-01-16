@@ -744,3 +744,40 @@ $users->sum('id');
 $users->filter->email_verified_at;
 $users->filter->isVerified(); 
 ```
+
+## [Sessions and Flash Messaging](https://laracasts.com/series/laravel-from-scratch-2018/episodes/36)
+
+> Because the web is stateless, 
+we can use sessions as a mechanism for recording important user information from page to page. 
+In this lesson, we'll review the basic sessions API and flash messaging. 
+Finally, for extra credit, we'll review how to make Composer autoload a `helpers.php` file 
+that contains useful helper functions for our application.
+
+### Note
+
+```php
+session(['name' => 'JohnDoe']);
+session('name');
+session('foobar', 'A default');
+session()->forget('name');
+session()->flash('message', 'Your project has been created.');
+```
+
+> composer.json
+
+```json
+"autoload": {
+    "psr-4": {
+        "App\\": "app/"
+    },
+    "classmap": [
+        "database/seeds",
+        "database/factories"
+    ],
+    "files": ["app/helpers.php"]
+}
+```
+
+```bash
+composer dump-autoload
+```
