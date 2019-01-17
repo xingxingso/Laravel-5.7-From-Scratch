@@ -781,3 +781,27 @@ session()->flash('message', 'Your project has been created.');
 ```bash
 composer dump-autoload
 ```
+
+## [Laravel Testing Crash Course](https://laracasts.com/series/laravel-from-scratch-2018/episodes/37)
+
+> Let's finish up this series with a crash-course in testing Laravel applications with TDD. 
+Using the example of "teams," 
+we'll review two different forms of testing: feature and unit.
+
+### Note
+
+> `.env.testing`
+
+```bash
+php artisan make:test TeamsTest
+php artisan make:test UsersTest --unit
+```
+
+```php
+/** @test */
+
+public function test_a_user_can_create_a_team()
+{
+    # code...
+}
+```
