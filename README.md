@@ -798,10 +798,38 @@ php artisan make:test UsersTest --unit
 ```
 
 ```php
+<?php
 /** @test */
-
 public function test_a_user_can_create_a_team()
 {
-    # code...
+    $this->withoutExceptionHandling();
+
+    // Given I am a user who is logged in
+    $this->actingAs(factory('App\User')->create());
+    $attributes = ['name' => 'Acme'];
+
+    // When they hit the endpoint /teams to create a new team, while passing the necessary data.
+    $this->post('/teams', $attributes);
+
+    // Then there should be a new in the database.
+    $this->assertDatabaseHas('teams', $attributes);
 }
 ```
+
+```xml
+<!-- phpunit.xml -->
+<env name="DB_DATABASE" value=":memory:"/>
+```
+
+## [The Next Steps](https://laracasts.com/series/laravel-from-scratch-2018/episodes/38)
+
+> All good things must come to an end, including "Laravel From Scratch." 
+Though we've covered a massive amount of material in this series, 
+naturally, there's a great deal more to review. 
+That's why your next step should be [Build a Laravel App With TDD](https://laracasts.com/series/build-a-laravel-app-with-tdd). 
+In this series, we'll take the skills you've learned, 
+and put them to good use constructing a real-world application from scratch.
+
+> Otherwise, if you'd like to review other pieces of the Laravel ecosystem,
+ here's what we recommend next: [Learn Laravel Forge](https://laracasts.com/series/learn-laravel-forge), [Learn Vue 2: Step By Step](https://laracasts.com/series/learn-vue-2-step-by-step), [Learn Laravel Mix](https://laracasts.com/series/learn-laravel-mix), 
+ and [Testing Laravel](https://laracasts.com/series/phpunit-testing-in-laravel).
